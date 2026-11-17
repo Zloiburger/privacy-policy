@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Поддержать «Матрицу Судьбы»</title>
+<style>
+  :root {
+    --bg: #0E0B1A;
+    --card: #1A1530;
+    --border: #332B52;
+    --gold: #E8C36A;
+    --gold-soft: #C9A94F;
+    --text: #F2EEFF;
+    --muted: #A79FC4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 24px 16px 48px;
+    background: radial-gradient(circle at 50% 0%, #1E1740 0%, var(--bg) 60%);
+    color: var(--text);
+    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 620px; margin: 0 auto; }
+  h1 { font-size: 28px; line-height: 1.25; margin: 8px 0 4px; color: var(--gold); }
+  h2 { font-size: 21px; margin: 32px 0 10px; color: var(--gold); }
+  p { margin: 10px 0; }
+  .muted { color: var(--muted); font-size: 16px; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 18px;
+    margin: 16px 0;
+  }
+  .amounts { display: flex; gap: 10px; flex-wrap: wrap; margin: 14px 0; }
+  button, .btn {
+    flex: 1 1 120px;
+    min-height: 56px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #12101F;
+    background: linear-gradient(180deg, #F3D98B, var(--gold-soft));
+    border: 0;
+    border-radius: 14px;
+    cursor: pointer;
+    padding: 14px 18px;
+    font-family: inherit;
+  }
+  button.ghost {
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid var(--gold-soft);
+  }
+  button:active { transform: translateY(1px); }
+  input[type=number] {
+    width: 100%;
+    min-height: 56px;
+    font-size: 20px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: #120F22;
+    color: var(--text);
+    font-family: inherit;
+  }
+  .row { display: flex; gap: 10px; align-items: stretch; }
+  .row input { flex: 1; }
+  .row button { flex: 0 0 auto; }
+  #note {
+    display: none;
+    margin-top: 12px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: #2A2140;
+    border: 1px solid var(--border);
+    font-size: 16px;
+  }
+  a { color: var(--gold); }
+  footer { margin-top: 36px; font-size: 15px; color: var(--muted); }
+  ul { padding-left: 22px; }
+  li { margin: 6px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Поддержать «Матрицу Судьбы»</h1>
+  <p class="muted">Приложение бесплатное. Поддержка добровольная и ни на что не влияет: ни на функции, ни на расчёты, ни на рекламу.</p>
+
+  <div class="card">
+    <h2>Донат</h2>
+    <p>Выберите сумму или введите свою. Деньги идут на развитие приложения.</p>
+    <div class="amounts">
+      <button data-amount="50">50 ₽</button>
+      <button data-amount="100">100 ₽</button>
+      <button data-amount="300">300 ₽</button>
+    </div>
+    <div class="row">
+      <input id="custom" type="number" min="10" max="15000" step="10" placeholder="Своя сумма, ₽">
+      <button class="ghost" id="custom-btn">Оплатить</button>
+    </div>
+    <div id="note"></div>
+  </div>
+
+  <div class="card">
+    <h2>Убрать рекламу — 99 ₽</h2>
+    <p>Разовый платёж, без подписки и автосписаний. После оплаты баннеры в приложении не показываются.</p>
+    <p class="muted">Отключение рекламы не влияет на расчёты матрицы, гороскоп и сохранённые профили.</p>
+    <button id="remove-ads">Убрать рекламу за 99 ₽</button>
+    <div id="note-ads"></div>
+  </div>
+
+  <h2>Как это работает</h2>
+  <ul>
+    <li>Оплата проходит на защищённой странице платёжного сервиса (ЮMoney / ЮKassa).</li>
+    <li>Приложение не получает и не хранит данные вашей карты.</li>
+    <li>После оплаты вы получаете чек самозанятого в приложении «Мой налог».</li>
+    <li>Донат — это подарок. Взамен ничего не предоставляется и не обещается.</li>
+    <li>Отключение рекламы — услуга. Условия и возврат: <a href="offer.html">публичная оферта</a>.</li>
+  </ul>
+
+  <h2>Кто получает деньги</h2>
+  <div class="card">
+    <p>Бондалет Роман, плательщик налога на профессиональный доход (самозанятый).</p>
+    <p class="muted">ИНН: указывается в чеке, который приходит после оплаты.</p>
+    <p class="muted">Связь: <a href="mailto:roman.bondalet53@gmail.com">roman.bondalet53@gmail.com</a></p>
+  </div>
+
+  <footer>
+    <p><a href="index.html">Политика конфиденциальности</a> · <a href="offer.html">Публичная оферта</a></p>
+    <p>Приложение «Матрица Судьбы: 22 Аркана» не является медицинской, психологической или финансовой услугой. Расчёты носят развлекательный характер.</p>
+  </footer>
+</div>
+
+<script>
+  // Ссылки подставляет владелец после подключения ЮKassa.
+  // Пустая строка = кнопка показывает «оплата подключается» и никуда не ведёт.
+  var PAY_BASE = "";          // например: "https://yoomoney.ru/transfer/..."
+  var REMOVE_ADS_URL = "";    // ссылка на оплату отключения рекламы
+
+  function show(el, text) {
+    el.textContent = text;
+    el.style.display = "block";
+  }
+
+  function pay(amount) {
+    var note = document.getElementById("note");
+    if (!PAY_BASE) {
+      show(note, "Оплата подключается. Совсем скоро здесь появится кнопка перехода к платежу.");
+      return;
+    }
+    var sep = PAY_BASE.indexOf("?") === -1 ? "?" : "&";
+    window.location.href = PAY_BASE + sep + "sum=" + amount;
+  }
+
+  document.querySelectorAll("button[data-amount]").forEach(function (b) {
+    b.addEventListener("click", function () { pay(b.getAttribute("data-amount")); });
+  });
+
+  document.getElementById("custom-btn").addEventListener("click", function () {
+    var note = document.getElementById("note");
+    var v = parseInt(document.getElementById("custom").value, 10);
+    if (!v || v < 10) {
+      show(note, "Минимальная сумма — 10 ₽.");
+      return;
+    }
+    if (v > 15000) {
+      show(note, "Максимальная сумма — 15 000 ₽.");
+      return;
+    }
+    pay(v);
+  });
+
+  document.getElementById("remove-ads").addEventListener("click", function () {
+    var note = document.getElementById("note-ads");
+    if (!REMOVE_ADS_URL) {
+      show(note, "Покупка подключается. Приложение остаётся бесплатным, реклама пока показывается.");
+      return;
+    }
+    window.location.href = REMOVE_ADS_URL;
+  });
+</script>
+</body>
+</html>
