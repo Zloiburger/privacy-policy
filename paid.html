@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Оплата получена — «Матрица Судьбы»</title>
+<style>
+  :root {
+    --bg: #0E0B1A;
+    --card: #1A1530;
+    --border: #332B52;
+    --gold: #E8C36A;
+    --gold-soft: #C9A94F;
+    --text: #F2EEFF;
+    --muted: #A79FC4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 24px 16px 48px;
+    background: radial-gradient(circle at 50% 0%, #1E1740 0%, var(--bg) 60%);
+    color: var(--text);
+    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 620px; margin: 0 auto; }
+  h1 { font-size: 28px; line-height: 1.25; margin: 8px 0 4px; color: var(--gold); }
+  h2 { font-size: 21px; margin: 32px 0 10px; color: var(--gold); }
+  p { margin: 10px 0; }
+  .muted { color: var(--muted); font-size: 16px; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 18px;
+    margin: 16px 0;
+  }
+  .order {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-align: center;
+    margin: 10px 0;
+    word-break: break-all;
+  }
+  ol { padding-left: 22px; }
+  li { margin: 10px 0; }
+  a { color: var(--gold); }
+  .btn {
+    display: block;
+    text-align: center;
+    min-height: 56px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #12101F;
+    background: linear-gradient(180deg, #F3D98B, var(--gold-soft));
+    border-radius: 14px;
+    padding: 14px 18px;
+    text-decoration: none;
+  }
+  footer { margin-top: 36px; color: var(--muted); font-size: 14px; }
+  footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Оплата получена</h1>
+  <p class="muted">Спасибо за поддержку. Ниже — номер вашего заказа. Он понадобится, чтобы отключить рекламу в приложении.</p>
+
+  <div class="card">
+    <p class="muted" style="margin:0">Номер заказа</p>
+    <div class="order" id="order">—</div>
+    <p class="muted" id="orderNote" style="margin:0">Если номер не появился, посмотрите его в письме от Robokassa или в приложении «Мой налог».</p>
+  </div>
+
+  <h2>Как отключить рекламу</h2>
+  <div class="card">
+    <ol>
+      <li>Откройте приложение «Матрица Судьбы».</li>
+      <li>Перейдите в раздел «Профили» → «Сервисы и поддержка».</li>
+      <li>Нажмите «Убрать рекламу» и введите номер заказа.</li>
+      <li>Реклама отключается сразу и навсегда на этом устройстве.</li>
+    </ol>
+  </div>
+
+  <h2>Чек</h2>
+  <p>Чек самозанятого придёт в приложение «Мой налог» и на вашу почту после обработки платежа. Если чек не пришёл в течение суток — напишите на <a href="mailto:roman.bondalet53@gmail.com">roman.bondalet53@gmail.com</a>.</p>
+
+  <h2>Если что-то пошло не так</h2>
+  <p>Платёж не прошёл, деньги списались дважды или реклама не отключилась — напишите на <a href="mailto:roman.bondalet53@gmail.com">roman.bondalet53@gmail.com</a>, указав номер заказа. Вернуть деньги можно по <a href="offer.html">публичной оферте</a>.</p>
+
+  <p style="margin-top:28px"><a class="btn" href="donate.html">Вернуться на страницу поддержки</a></p>
+
+  <footer>
+    <p><a href="index.html">Политика конфиденциальности</a> · <a href="offer.html">Публичная оферта</a></p>
+    <p>Бондалет Роман, самозанятый. ИНН 071605513766. Приложение «Матрица Судьбы: 22 Аркана» не является медицинской, психологической или финансовой услугой. Расчёты носят развлекательный характер.</p>
+  </footer>
+
+</div>
+
+<script>
+  // Robokassa при успешной оплате передаёт номер заказа в параметре InvId.
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    var invId = params.get('InvId') || params.get('invId') || params.get('InvID');
+    var orderEl = document.getElementById('order');
+    var noteEl = document.getElementById('orderNote');
+    if (invId && /^\d+$/.test(invId)) {
+      orderEl.textContent = invId;
+      noteEl.textContent = 'Запишите этот номер или сделайте скриншот.';
+    } else {
+      orderEl.textContent = '—';
+    }
+  })();
+</script>
+</body>
+</html>
