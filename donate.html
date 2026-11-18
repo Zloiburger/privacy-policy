@@ -137,10 +137,10 @@
 </div>
 
 <script>
-  // Ссылки подставляет владелец после подключения ЮKassa.
+  // Ссылки подставляет владелец после активации магазина в Robokassa.
   // Пустая строка = кнопка показывает «оплата подключается» и никуда не ведёт.
-  var PAY_BASE = "";          // например: "https://yoomoney.ru/transfer/..."
-  var REMOVE_ADS_URL = "";    // ссылка на оплату отключения рекламы
+  var PAY_BASE = "";          // платёжная ссылка Robokassa для донатов
+  var REMOVE_ADS_URL = "";    // платёжная ссылка Robokassa для услуги «Убрать рекламу»
 
   function show(el, text) {
     el.textContent = text;
